@@ -17,7 +17,8 @@ extends the standard `BiBTeX` model by an `acronym` entry.
 # License
 Copyright (c) 2018 Merlin Göttlinger
 
-forked from https://github.com/neapel/biblatex-lncs.git, by Joseph Scott
+forked from https://github.com/neapel/biblatex-lncs.git,
+who forked from https://github.com/jossco/biblatex-lncs.git, by Joseph Scott
 who forked from https://github.com/gvdgdo/biblatex-lncs.git, by Guido Governatori
 
 This package may be distributed under the terms of the LaTeX Project
