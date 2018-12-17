@@ -14,6 +14,9 @@ extends the standard `BiBTeX` model by an `acronym` entry.
       style=lncs
     ]{biblatex}
 
+# Status
+I intend to maintain this fork and gladly accept pull requests and issues.
+
 # License
 Copyright (c) 2018 Merlin Göttlinger
 
