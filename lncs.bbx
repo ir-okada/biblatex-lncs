@@ -2,14 +2,14 @@
 
 \RequireBibliographyStyle{numeric}
 
-\ExecuteBibliographyOptions{firstinits=true,
+\ExecuteBibliographyOptions{giveninits=true,
   minbibnames=1,
   mincrossrefs=99,
   maxbibnames=999}
 
 \newtoggle{lncs:abbrev}
 \newtoggle{lncs:series}
-\newtoggle{lncs:conference}  
+\newtoggle{lncs:conference}
 \newtoggle{lncs:lncs}
 \DeclareBibliographyOption{acronym}[true]{\toggletrue{lncs:abbrev}}
 \DeclareBibliographyOption{series}[no]{
@@ -22,7 +22,7 @@
   \ifstrequal{#1}{full}{}{}
   \ifstrequal{#1}{acronym}{}{}
 }
-  
+
 \DeclareFieldFormat{labelnumberwidth}{#1.}
 \defbibenvironment{bibliography}
   {\list
