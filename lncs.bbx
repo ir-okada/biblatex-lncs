@@ -3,6 +3,7 @@
 \RequireBibliographyStyle{numeric}
 
 \ExecuteBibliographyOptions{giveninits=true,
+  doi=true,
   minbibnames=1,
   mincrossrefs=99,
   maxbibnames=999}
@@ -23,7 +24,19 @@
   \ifstrequal{#1}{acronym}{}{}
 }
 
+%%% Field Formats
+
 \DeclareFieldFormat{labelnumberwidth}{#1.}
+\DeclareFieldFormat{journaltitle}{#1}
+\DeclareFieldFormat[article,book,inproceedings,incollection, online,report,thesis]{title}{#1}
+\DeclareFieldFormat{booktitle}{#1}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat{year}{(#1)}
+\DeclareFieldFormat{acronym}{#1}
+\DeclareFieldFormat{url}{\url{#1}}
+
+%%%
+
 \defbibenvironment{bibliography}
   {\list
      {\printfield[labelnumberwidth]{labelnumber}}
@@ -52,14 +65,6 @@
     }
   }
 }
-
-
-\DeclareFieldFormat{journaltitle}{#1}
-\DeclareFieldFormat[article,book,inproceedings,incollection, online,report,thesis]{title}{#1}
-\DeclareFieldFormat{booktitle}{#1}
-\DeclareFieldFormat[article]{pages}{#1}
-\DeclareFieldFormat{year}{(#1)}
-\DeclareFieldFormat{acronym}{#1}
 
 \renewbibmacro{journal}{%
   \iffieldundef{shortjournal}
@@ -164,6 +169,9 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -188,6 +196,9 @@
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
+    {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
     {}%
   \nopunct%
   \usebibmacro{finentry}%
@@ -240,6 +251,9 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -275,6 +289,9 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -289,8 +306,6 @@
   \printfield{note}%
   \usebibmacro{finentry}%
 }
-
-\DeclareFieldFormat{url}{\url{#1}}
 
 \DeclareBibliographyDriver{online}{%
   \usebibmacro{bibindex}%
@@ -327,6 +342,9 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
   \nopunct%
   \usebibmacro{finentry}
 }
@@ -341,6 +359,9 @@
   \printfield{title}%
   \newunit\newblock
   \usebibmacro{institution+location+date}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
   \usebibmacro{finentry}%
 }
 
@@ -383,6 +404,9 @@
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
+    {}%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
     {}%
   \nopunct%
   \usebibmacro{finentry}
