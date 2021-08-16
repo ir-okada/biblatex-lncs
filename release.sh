@@ -1,2 +1,2 @@
 #!/bin/bash
-ctanify --notds LICENSE README.md lncs.bbx lncs.cbx lncs.dbx test.bib test.tex
+ctanify --notds --pkgname biblatex-lncs LICENSE README.md lncs.bbx lncs.cbx lncs.dbx test.bib test.tex
