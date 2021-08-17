@@ -1,0 +1,36 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Create llncs.cls
+        id: createllncs
+        shell: bash
+        run: |
+           mkdir tmp
+           if [ "$LLNCS_CLS" == "" ]; then
+             echo ::set-output name=lncsclspresent::false
+           else
+             echo ::set-output name=lncsclspresent::true
+             echo "$LLNCS_CLS" > llncs.cls
+           fi
+        env:
+          LLNCS_CLS: ${{secrets.LLNCS_CLS}}
+      - name: pdflatex test.tex
+        if: ${{ steps.createllncs.outputs.lncsclspresent }}
+        uses: dante-ev/latex-action@edge
+        with:
+          root_file: test.tex
+          compiler: pdflatex
+          args: -interaction=nonstopmode -shell-escape
+      - name: release.sh
+        uses: dante-ev/latex-action@edge
+        with:
+          entrypoint: ./release.sh
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ctan
+          path: biblatex-lncs.tar.gz
