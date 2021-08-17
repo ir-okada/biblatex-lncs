@@ -1,6 +1,6 @@
 # biblatex-lncs
 
-BiBLaTeX style for Springer Lecture Notes in Computer Science
+BibLaTeX style for Springer Lecture Notes in Computer Science
 
 ## Introduction
 
@@ -21,7 +21,7 @@ I intend to maintain this fork and gladly accept pull requests and issues.
 
 ## Testing
 
-For building the included `test.tex` the `llncs` class needs to be in scope. The CI can get it via the ENV variable `LLNCS_CLS`.
+For building the included `test.tex` the `llncs` class from the Springer author guidelines needs to be in scope. The CI can get it via the ENV variable `LLNCS_CLS`.
 
 ## License
 
