@@ -19,9 +19,13 @@ extends the standard `BiBTeX` model by an `acronym` entry.
 
 I intend to maintain this fork and gladly accept pull requests and issues.
 
+## Testing
+
+For building the included `test.tex` the `llncs` class needs to be in scope. The CI can get it via the ENV variable `LLNCS_CLS`.
+
 ## License
 
-Copyright (c) 2018 Merlin Göttlinger
+Copyright (c) 2021 Merlin Göttlinger
 
 Forked from <https://github.com/neapel/biblatex-lncs.git>,
 who forked from <https://github.com/jossco/biblatex-lncs.git>, by Joseph Scott
