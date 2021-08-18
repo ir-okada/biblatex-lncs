@@ -33,4 +33,4 @@ who forked from <https://github.com/gvdgdo/biblatex-lncs.git>, by Guido Governat
 
 This package may be distributed under the terms of the LaTeX Project
 Public License, as described in lppl.txt in the base LaTeX distribution.
-Either version 1.0 or, at your option, any later version.
+Either version 1.3c or, at your option, any later version.
