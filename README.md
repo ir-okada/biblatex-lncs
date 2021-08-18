@@ -1,4 +1,5 @@
 # biblatex-lncs
+[![Build](https://github.com/mgttlinger/biblatex-lncs/actions/workflows/build.yml/badge.svg)](https://github.com/mgttlinger/biblatex-lncs/actions/workflows/build.yml)
 
 BibLaTeX style for Springer Lecture Notes in Computer Science
 
