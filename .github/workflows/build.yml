@@ -19,11 +19,11 @@ jobs:
            fi
         env:
           LLNCS_CLS: ${{secrets.LLNCS_CLS}}
-      - name: pdflatex test.tex
+      - name: pdflatex biblatex-lncs-test.tex
         if: ${{ steps.createllncs.outputs.lncsclspresent }}
         uses: dante-ev/latex-action@edge
         with:
-          root_file: test.tex
+          root_file: biblatex-lncs-test.tex
           compiler: pdflatex
           args: -interaction=nonstopmode -shell-escape
       - name: release.sh

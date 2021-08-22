@@ -18,11 +18,11 @@ extends the standard `BiBTeX` model by an `acronym` entry.
 
 ## Status
 
-I intend to maintain this fork and gladly accept pull requests and issues.
+I intend to maintain this fork and gladly accept pull requests and issues (although not committing myself to fixing any issue as required by the LPPL license). At the time of writing [@mgttlinger](https://github.com/mgttlinger) is the current maintainer in the sense of the LPPL license.
 
 ## Testing
 
-For building the included `test.tex` the `llncs` class from the Springer author guidelines needs to be in scope. The CI can get it via the ENV variable `LLNCS_CLS`.
+For building the included `biblatex-lncs-test.tex` the `llncs` class from the Springer author guidelines needs to be in scope. The CI can get it via the ENV variable `LLNCS_CLS`.
 
 ## License
 
