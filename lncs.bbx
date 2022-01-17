@@ -1,4 +1,4 @@
-\ProvidesFile{lncs.bbx}[2021/08/17 v0.3]
+\ProvidesFile{lncs.bbx}[2022/01/17 v0.4]
 
 \RequireBibliographyStyle{numeric}
 
@@ -135,7 +135,7 @@
           {\namepartsuffix}
   \ifthenelse{\value{listcount}<\value{liststop}}
     {\addcomma\space}%
-    {}%
+    {\ifmorenames{\addcomma\space\bibstring[\emph]{andothers}:}}%
 }
 
 \DeclareNameFormat{editor}{%
@@ -147,7 +147,7 @@
           {\namepartsuffix}
     \ifthenelse{\value{listcount}<\value{liststop}}
     {\addcomma\space}%
-    {\space\ifthenelse{\value{listcount}>1}
+    {\ifmorenames{\addcomma\space\bibstring[\emph]{andothers}}\space\ifthenelse{\value{listcount}>1}
       {(\bibstring{editors})}
       {(\bibstring{editor})}}%
 }
