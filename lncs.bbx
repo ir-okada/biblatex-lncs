@@ -28,7 +28,7 @@
 
 \DeclareFieldFormat{labelnumberwidth}{#1.}
 \DeclareFieldFormat{journaltitle}{#1}
-\DeclareFieldFormat[article,book,inproceedings,incollection, online,report,thesis]{title}{#1}
+\DeclareFieldFormat[article,book,inproceedings,incollection,online,report,thesis,misc]{title}{#1}
 \DeclareFieldFormat{booktitle}{#1}
 \DeclareFieldFormat[article]{pages}{#1}
 \DeclareFieldFormat{year}{(#1)}
@@ -126,6 +126,12 @@
 
 \renewcommand{\labelnamepunct}{\addcolon\space}
 
+\newbibmacro{doi}{%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+}
+
 \DeclareNameFormat{author}{%
   \nameparts{#1}%
   \usebibmacro{name:family-given}
@@ -170,9 +176,7 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -197,9 +201,6 @@
   \iftoggle{bbx:related}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
-    {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
     {}%
   \nopunct%
   \usebibmacro{finentry}%
@@ -252,9 +253,7 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -291,9 +290,7 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \nopunct%
   \usebibmacro{finentry}%
 }
@@ -344,9 +341,7 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \nopunct%
   \usebibmacro{finentry}
 }
@@ -363,9 +358,7 @@
   \printfield{type}
   \addcomma\newunit
   \usebibmacro{institution+location+date}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \usebibmacro{finentry}%
 }
 
@@ -399,7 +392,6 @@
   \newunit\newblock
   \usebibmacro{institution+location+date}%
   %\newunit\newblock
-  %\usebibmacro{doi+eprint+url}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \setunit{\bibpagerefpunct}\newblock
@@ -409,9 +401,7 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
-  \iftoggle{bbx:doi}
-    {\printfield{doi}}
-    {}%
+  \usebibmacro{doi}%
   \nopunct%
   \usebibmacro{finentry}
 }
