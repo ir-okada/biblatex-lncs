@@ -35,7 +35,7 @@
 \DeclareFieldFormat{acronym}{#1}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat[article]{volume}{\textbf{#1}}
-
+\DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
 %%%
 
 \defbibenvironment{bibliography}
@@ -361,7 +361,7 @@
   \newunit
   \printfield{note}%
   \newunit\newblock
-  \usebibmacro{organization+location}%
+  \printlist{organization}%
   \newunit\newblock
   \usebibmacro{addendum+pubstate}%
   \setunit{\bibpagerefpunct}\newblock
