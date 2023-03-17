@@ -148,6 +148,23 @@
 \DeclareFieldFormat{editortype}{(#1)}
 \DeclareDelimFormat{editortypedelim}{\space}
 
+\DeclareNameFormat{author}{%
+  \ifdefvoid{\namepartprefix}{}{\namepartprefix\space}\namepartfamily, \namepartgiveni%
+  \ifthenelse{\value{listcount}<\value{liststop}}
+    {\addcomma\space}%
+    {}%
+  \usebibmacro{name:andothers}%
+}
+\DeclareNameFormat{editor}{%
+  \ifdefvoid{\namepartprefix}{}{\namepartprefix\space}\namepartfamily, \namepartgiveni%
+  \ifthenelse{\value{listcount}<\value{liststop}}
+    {\addcomma\space}%
+    {\space\ifthenelse{\value{listcount}>1}
+      {(\bibstring{editors})}
+      {(\bibstring{editor})}}%
+}
+
+
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
