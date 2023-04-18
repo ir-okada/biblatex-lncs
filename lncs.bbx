@@ -67,6 +67,28 @@
   }
 }
 
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[ % copies url to doi field if it starts with https://doi.org/ or http://dx.doi.org/. This does not overwrite doi.
+      fieldsource=url,
+      match=\regexp{https?://(dx.)?doi.org/(.+)},
+      fieldtarget=doi,
+      ]
+      \step[ % removes https://doi.org/ or http://dx.doi.org/ string from doi field
+      fieldsource=doi,
+      match=\regexp{https?://(dx.)?doi.org/(.+)},
+      replace=\regexp{$2}
+      ]
+    }
+    \map{ % removes url + urldate field from all entries that have a doi field with https://doi.org/ or http://dx.doi.org/ string. If url is undefined or does not match \regexp{https?://(dx.)?doi.org/(.+)}, then processing of this \map immediately terminates.
+      \step[fieldsource=url, match=\regexp{https?://(dx.)?doi.org/(.+)}, final]
+      \step[fieldset=url, null]
+      \step[fieldset=urldate, null]
+    }
+  }
+}
+
 \renewbibmacro{journal}{%
   \iffieldundef{shortjournal}
   {\printfield{journaltitle}}
